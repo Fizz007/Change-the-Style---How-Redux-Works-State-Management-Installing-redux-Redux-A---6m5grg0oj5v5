@@ -2,31 +2,24 @@ import React from 'react'
 import '../styles/App.css';
 import {useSelector,useDispatch} from "react-redux";
 import {changeColor,changeStyle } from '../actions/index.js';
-import { useState } from 'react';
+
 
 const App = () => {
 
 const dispatch =useDispatch();
-//code here 
+//code here
+ const colorState = useSelector((state)=> state.colorReducer )
+ const styleState = useSelector((state)=> state.styleReducer )
 
-function color(){
-  dispatch(changeColor(colorState))
-  setcolorState(colorState === 'RED' ? 'GREEN' : 'RED' )
-}
 
-function style(){
-  dispatch(changeStyle(styleState))
-  setstyleState(styleState === 'ARIAL' ? 'GEORGIA' : 'ARIAL')
-}
 
-const [colorState, setcolorState] = useState('RED');
-const [styleState, setstyleState] = useState('ARIAL');
+
 
   return (
     <div id="main">
       <h1 id='text' style={{color: colorState, fontFamily: styleState}}>Newton School</h1>
-      <button id='colorBtn' onClick={color}>Change Color</button>
-      <button id='styleBtn' onClick={style}>Change Style</button>
+      <button id='colorBtn' onClick={()=> dispatch(changeColor(colorState))}>Change Color</button>
+      <button id='styleBtn' onClick={()=> dispatch(changeStyle(styleState))}>Change Style</button>
 
     </div>
   )
