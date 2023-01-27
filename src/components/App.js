@@ -19,8 +19,8 @@ function style(){
   setstyleState(styleState === 'ARIAL' ? 'GEORGIA' : 'ARIAL')
 }
 
-const [colorState, setcolorState] = useState();
-const [styleState, setstyleState] = useState();
+const [colorState, setcolorState] = useState('RED');
+const [styleState, setstyleState] = useState('ARIAL');
 
   return (
     <div id="main">
